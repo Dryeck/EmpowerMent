@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+
+
+<div class="container">
+
+	<div class="row justify-content-center">
+		<h2> Mentor Acquired </h2>
+	</div>
+
+	<div class="row buffer" style="height:50px"> </div>
+	<hr />
+	<div class="row buffer" style="height:50px"> </div>
+
+	<div class="row justify-content-around">
+		<div class="col-5">
+			<div class="row justify-content-center">
+				<h4>Your information:</h4>
+			</div>
+			<div class="row buffer" style="height:20px"> </div>
+			<div class="row justify-content-center">
+				Name: {{menteeName}}
+			</div>
+			<div class="row buffer" style="height:10px"> </div>
+			<div class="row justify-content-center">
+				Bio: {{menteeBio}}
+			</div>
+		</div>
+		<div class="col-5">
+			<div class="row justify-content-center">
+				<h4>Mentor's information:</h4>
+			</div>
+			<div class="row buffer" style="height:20px"> </div>
+			<div class="row justify-content-center">
+				Name: {{mentorName}}
+			</div>
+			<div class="row buffer" style="height:10px"> </div>
+			<div class="row justify-content-center">
+				Bio: {{mentorBio}}
+			</div>
+			<div class="row buffer" style="height:20px"> </div>
+			<div class="row justify-content-center">
+				<a class="btn btn-success" href="#"> Chat now </a>
+			</div>
+		</div>
+	</div>
+	<div class="row buffer" style="height:30px"> </div>
+</div>
+{% endblock %}

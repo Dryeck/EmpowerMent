@@ -1,0 +1,42 @@
+{% extends "login-base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<script>
+	$(document).ready(function(){
+	$('[data-toggle="popover"]').popover(); 
+	});
+</script>
+<div class="row justify-content-center">
+  <h1 class="emp">EmpowerMent</h1>
+</div>
+<div class="row justify-content-center">
+  <p class="important">
+    Mentor Signup
+  </p>
+</div>
+
+<div class="container justify-contents-center" style="width:25%; min-width:300px">
+	<div class="input-group">
+	    <div class="input-group-btn">
+	      	<a class="btn btn-secondary " href="#">
+	            Signup Code
+	        </a>
+		</div>
+	    <input id="code" type="text" class="form-control">
+	    <span style="width:5px;"> </span>
+
+	    <a href="#" data-toggle="popover" data-content="Individuals must receive a recommendation from their doctor to mentor on PainPals. Please contact your PCP if you would like to be involved."> 
+	    	<i class="fa fa-question-circle" aria-hidden="true"> </i>
+	    </a>
+	</div>
+	<div class="row justify-contents-center" id="codeBuffer" style="height:20px;"> </div>
+	<div class="row justify-contents-center">
+		<a class="btn btn-success" href="#" style="display:block; margin:auto"> Validate </a>
+	</div>
+	<div class="row justify-contents-center" id="codeValidateBuffer" style="height:20px;"> </div>
+</div>
+
+{% endblock %}

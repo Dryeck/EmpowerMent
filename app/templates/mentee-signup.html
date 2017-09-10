@@ -1,0 +1,75 @@
+{% extends "login-base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <h1 class="emp">EmpowerMent </h1>
+    </div>
+<div class="row justify-content-center">
+  <p class="important">
+    Mentee Signup
+  </p>
+</div>
+<div class="row buffer" style="height:30px;"></div>
+
+<div ng-controller="menteeSignupController" ng-init="matchTest()">
+	<div class="container justify-content-center" style="width:25%; min-width:300px">
+	<form method="POST" action="{{ url_for('loading') }}">
+		<div class="row">
+		<div ng-show="!delayedHide" ng-class="{'goLeftOut': !firstPortion}">
+			<div class="form-group" style="min-width:300px;">
+			  <label for="name">Email Address</label>
+			  <input required class="form-control" type="text" id="email" name="email">
+			</div>
+			
+			<div class="row buffer" style="height:20px;"> </div>
+			<div class="form-group">
+			  <label for="name">Password</label>
+			  <input required class="form-control" type="password" id="password">
+			</div>
+
+			<div class="row buffer" style="height:20px;"> </div>
+			<div class="form-group">
+			  <label for="name">Repeat Password</label>
+			  <input required class="form-control" type="password" id="rpassword">
+			</div>
+
+			<div class="row buffer" style="height:20px;"> </div>
+			<div class="row justify-content-center">
+				<a class="btn btn-success" ng-click="toSecond()" href="#" style="display:block; margin:auto"> Next <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+			</div>
+			<button class="btn btn-success" id="realButton" style="display:none" type="submit"></button>
+				</form>
+			<div class="row buffer" style="height:20px;"> </div>
+		</div>
+		<div ng-cloak ng-show="delayedHide" ng-class="{'goLeftIn': delayedHide}" class="container justify-content-center" >
+			<div class="form-group">
+			  <label for="name">First Name:</label>
+			  <input required class="form-control" type="text" id="name">
+			</div>
+			<div class="row buffer" style="height:20px;"> </div>
+			<div class="form-group">
+			  <label for="bio">Some information about yourself:</label>
+			  <textarea class="form-control" rows="4" id="bio"></textarea>
+			</div>
+			<div class="row buffer" style="height:20px;"> </div>
+			<div class="form-group">
+			  <label for="medications">Medications you take (optional):</label>
+			  <textarea class="form-control" rows="5" id="medications" placeholder="You only need to enter these if you're interested in talking to a mentor who has used the same medication."></textarea>
+			</div>
+			<div class="row buffer" style="height:20px;"> </div>
+			<div class="row justify-content-center">
+				<a class="btn btn-success" ng-click="processCreateMentee()" href="#" style="display:block; margin:auto"> Submit and find a mentor! <i class="fa fa-arrow-right" aria-hidden="true"></i> </a>
+
+			</div>
+			<div class="row buffer" style="height:20px;"> </div>
+		</div>
+
+		</div>
+		
+	</div>
+</div>
+
+{% endblock %}

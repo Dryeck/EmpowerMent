@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Loading{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+  <div class="container justify-contents-center" style="width:100%" ng-controller="menteeSignupController">
+    <h1 style="text-align:center">Finding a mentor...</h1>
+
+  	<img src="{{ url_for('static', filename='images/loader.gif') }}" style="margin:auto; display: inherit"/>
+  	<script>
+  		
+  		var personId = "{{menteeId}}";
+  		console.log(personId);
+  		var personBio;
+  		getMenteeBio(personId).then(function(val) {
+  			personBio = val;
+  			console.log(personBio);
+	  		var mentorBios;
+	  		getMentorBios().then(function(val) {
+	  			mentorBios = val;
+		  		var mentorId = matchMentor(personBio, mentorBios);
+		  		document.getElementById('menteeBio').value = personBio;
+		  		document.getElementById('menteeId').value = personId;
+		  		document.getElementById('mentorId').value = mentorId;
+		  		document.getElementById('advance').click();
+  			});
+  		});
+  	</script>
+
+  	<form method="POST" action="{{ url_for('get_mentor') }}">
+  		<input id="menteeId" type="text" name="menteeId" style="display:none">
+  		<input id="menteeBio" type="text" name="menteeBio" style="display:none">
+	  	<input id="mentorId" type="text" name="mentorId" style="display:none">
+	  	<button type="submit" id="advance" style="display:none"></button>
+  	</form>
+  </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "login-base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{super()}}
+{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+  <h1 class="emp">EmpowerMent</h1>
+</div>
+<div class="row justify-content-center">
+  <p class="important">
+    Real mentors, Real healing.
+  </p>
+</div>
+
+<div class="row justify-contents-center" id="loginBuffer" style="height:30px;"></div>
+
+<div class="container justify-contents-center" style="width:25%">
+<form action="signIn" method="POST">
+	<div class="input-group">
+	    <div class="input-group-btn">
+	      	<a class="btn btn-secondary " href="#">
+	            Username
+	        </a>
+    	</div>
+    <input id="username" type="text" class="form-control">
+    </div>
+
+	<div class="row justify-contents-center" id="usernameBuffer" style="height:20px;"> </div>
+
+	<div>
+		<div class="input-group">
+			<div class="input-group-btn">
+		    	<a class="btn btn-secondary " href="#">
+		            Password
+		        </a>
+		    </div>
+		    <input id="password" type="text" class="form-control">
+	    </div>
+	</div>
+	<div class="row justify-contents-center" style="padding-top: 20px;">
+		<button class="btn btn-success" type="submit" style="display:block; margin:auto"> Login </a>
+	</div>
+
+	<div class="row justify-contents-center" id="passwordBuffer" style="height:20px;"> </div>
+	<hr style="position: relative; top: -10px;"/>
+	<div class="row justify-contents-center" >
+		<a class="btn btn-success" href="{{ url_for('mentee_signup') }}" style="display:block; margin:auto"> Sign up as Mentee </a>
+	</div>
+
+	<div class="row justify-contents-center" id="signupBuffer" style="height:20px;"></div>
+	<div class="row justify-contents-center" style="padding-bottom:20px">
+		<a class="btn btn-primary" href="{{ url_for('mentor_signup') }}" style="display:block; margin:auto"> Sign up as Mentor </a>
+	</div>
+</div>
+
+{% endblock %}
